@@ -129,7 +129,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1tZ-ST-qNy">
                             <connections>
-                                <segue destination="vzT-iI-OkS" kind="unwind" unwindAction="unwindToMealListWithSender:" id="nzY-88-58Y"/>
+                                <segue destination="vzT-iI-OkS" kind="unwind" unwindAction="unwindToShowListWithSender:" id="etU-I4-fay"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -203,6 +203,7 @@
                                     <outlet property="dateLabel" destination="kii-AU-VwH" id="7hZ-4w-VWl"/>
                                     <outlet property="locationLabel" destination="QET-oj-6dj" id="kdi-1X-ISt"/>
                                     <outlet property="ratingControl" destination="HJj-jB-iy1" id="Xl8-FB-1mb"/>
+                                    <segue destination="SmI-tc-eFO" kind="show" identifier="ShowDetail" id="UwR-8X-M1A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -257,7 +258,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRj-GO-5Bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2891.1999999999998" y="-1297.1514242878561"/>
+            <point key="canvasLocation" x="2852" y="-897"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UwR-8X-M1A"/>
+    </inferredMetricsTieBreakers>
 </document>

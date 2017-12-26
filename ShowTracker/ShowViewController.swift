@@ -49,7 +49,18 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         artistField.delegate = self
         locationField.delegate = self
         
+        // Set up views if editing an existing Show.
+        if let show = show {
+            navigationItem.title = "Edit Show"
+            artistField.text = show.artist
+            locationField.text = show.location
+            date = show.date
+            ratingField.rating = show.rating
+        }
+        
         updateSaveButtonState()
+        
+        
         
         // TODO: configure times?
     }
@@ -179,7 +190,17 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The ShowViewController is not inside a navigation controller.")
+        }
     }
     
     //MARK: UITextFieldDelegate
@@ -207,14 +228,5 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let locationText = locationField.text ?? ""
         saveButton.isEnabled = !artistText.isEmpty && !locationText.isEmpty
     }
-
-
-     /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

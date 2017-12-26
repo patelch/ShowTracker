@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ShowTableViewController: UITableViewController {
 
@@ -82,17 +83,23 @@ class ShowTableViewController: UITableViewController {
     }
     
     // MARK: Actions
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToShowList(sender: UIStoryboardSegue) {
         
         // TODO: maintain list in order of date
         
         if let sourceViewController = sender.source as? ShowViewController, let show = sourceViewController.show {
             
-            // Add a new show.
-            let newIndexPath = IndexPath(row: shows.count, section: 0)
-            
-            shows.append(show)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Edit an existing show.
+                shows[selectedIndexPath.row] = show
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new show.
+                let newIndexPath = IndexPath(row: shows.count, section: 0)
+                
+                shows.append(show)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
             
         }
         
@@ -135,14 +142,41 @@ class ShowTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+    // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new show.", log: OSLog.default, type: .debug)
+        
+        case "ShowDetail":
+            os_log("Viewing the details of a show.", log: OSLog.default, type: .debug)
+            
+            // change details
+            guard let showDetailViewController = segue.destination as? ShowViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedShowCell = sender as? ShowTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedShowCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedShow = shows[indexPath.row]
+            showDetailViewController.show = selectedShow
+        
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            
+        }
     }
-    */
 
 }
