@@ -11,6 +11,7 @@
 		836C4C4DE159F71E3C04CFB0 /* Pods_ShowTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D1536C640D8690D745B4C4 /* Pods_ShowTrackerTests.framework */; };
 		C61CD0141FF0EEF600FA860F /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CD0131FF0EEF600FA860F /* RatingControl.swift */; };
 		C61CD0161FF1A38B00FA860F /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CD0151FF1A38B00FA860F /* ShowTableViewCell.swift */; };
+		C61CD0181FF31DDF00FA860F /* CreateShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CD0171FF31DDF00FA860F /* CreateShowTableViewController.swift */; };
 		C6977B521FE5F6E1001D78F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B511FE5F6E1001D78F6 /* AppDelegate.swift */; };
 		C6977B571FE5F6E1001D78F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6977B551FE5F6E1001D78F6 /* Main.storyboard */; };
 		C6977B591FE5F6E1001D78F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6977B581FE5F6E1001D78F6 /* Assets.xcassets */; };
@@ -19,6 +20,20 @@
 		C6977B721FE5FC41001D78F6 /* ShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */; };
 		C6977B741FE5FC8F001D78F6 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B731FE5FC8F001D78F6 /* Show.swift */; };
 		C6977B781FE60A39001D78F6 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B771FE60A39001D78F6 /* ShowViewController.swift */; };
+		C6C7829C1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C7829A1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift */; };
+		C6C7829D1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */; };
+		C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */; };
+		C6C782A31FF3992B0044A2BD /* ArtistAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */; };
+		C6C782A61FF39D1D0044A2BD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */; };
+		C6C782A71FF39D1D0044A2BD /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */; };
+		C6C782AE1FF3A2090044A2BD /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */; };
+		C6C782AF1FF3A2090044A2BD /* RatingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */; };
+		C6C782B21FF42DED0044A2BD /* DateLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */; };
+		C6C782B31FF42DED0044A2BD /* DateLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782B11FF42DED0044A2BD /* DateLabelTableViewCell.xib */; };
+		C6C782B91FF4311E0044A2BD /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782B71FF4311E0044A2BD /* DatePickerTableViewCell.swift */; };
+		C6C782BA1FF4311E0044A2BD /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */; };
+		C6C782BD1FF4ADD10044A2BD /* FestivalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */; };
+		C6C782BE1FF4ADD10044A2BD /* FestivalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +54,7 @@
 		A721937C7CB3C020098A1769 /* Pods_ShowTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61CD0131FF0EEF600FA860F /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C61CD0151FF1A38B00FA860F /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		C61CD0171FF31DDF00FA860F /* CreateShowTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShowTableViewController.swift; sourceTree = "<group>"; };
 		C6977B4E1FE5F6E1001D78F6 /* ShowTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6977B511FE5F6E1001D78F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6977B561FE5F6E1001D78F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +67,20 @@
 		C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewController.swift; sourceTree = "<group>"; };
 		C6977B731FE5FC8F001D78F6 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		C6977B771FE60A39001D78F6 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		C6C7829A1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryTableViewCell.swift; sourceTree = "<group>"; };
+		C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistEntryTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAddTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistAddTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabelTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782B11FF42DED0044A2BD /* DateLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateLabelTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782B71FF4311E0044A2BD /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FestivalTableViewCell.xib; sourceTree = "<group>"; };
 		E5979895C4204E7D33230528 /* Pods-ShowTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowTrackerTests/Pods-ShowTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,10 +147,11 @@
 		C6977B501FE5F6E1001D78F6 /* ShowTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C6C7829F1FF397750044A2BD /* ShowDetails */,
+				C6977B551FE5F6E1001D78F6 /* Main.storyboard */,
+				C6977B511FE5F6E1001D78F6 /* AppDelegate.swift */,
 				C6977B771FE60A39001D78F6 /* ShowViewController.swift */,
 				C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */,
-				C6977B511FE5F6E1001D78F6 /* AppDelegate.swift */,
-				C6977B551FE5F6E1001D78F6 /* Main.storyboard */,
 				C61CD0151FF1A38B00FA860F /* ShowTableViewCell.swift */,
 				C61CD0131FF0EEF600FA860F /* RatingControl.swift */,
 				C6977B731FE5FC8F001D78F6 /* Show.swift */,
@@ -138,6 +169,44 @@
 				C6977B681FE5F6E1001D78F6 /* Info.plist */,
 			);
 			path = ShowTrackerTests;
+			sourceTree = "<group>";
+		};
+		C6C7829F1FF397750044A2BD /* ShowDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C61CD0171FF31DDF00FA860F /* CreateShowTableViewController.swift */,
+				C6C782C01FF4AEE20044A2BD /* Cell Swift */,
+				C6C782BF1FF4AEC50044A2BD /* Cell XIB */,
+			);
+			path = ShowDetails;
+			sourceTree = "<group>";
+		};
+		C6C782BF1FF4AEC50044A2BD /* Cell XIB */ = {
+			isa = PBXGroup;
+			children = (
+				C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */,
+				C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */,
+				C6C782B11FF42DED0044A2BD /* DateLabelTableViewCell.xib */,
+				C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */,
+				C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */,
+				C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */,
+				C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */,
+			);
+			path = "Cell XIB";
+			sourceTree = "<group>";
+		};
+		C6C782C01FF4AEE20044A2BD /* Cell Swift */ = {
+			isa = PBXGroup;
+			children = (
+				C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */,
+				C6C7829A1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift */,
+				C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */,
+				C6C782B71FF4311E0044A2BD /* DatePickerTableViewCell.swift */,
+				C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */,
+				C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */,
+				C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */,
+			);
+			path = "Cell Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +298,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6C782AF1FF3A2090044A2BD /* RatingTableViewCell.xib in Resources */,
+				C6C782BA1FF4311E0044A2BD /* DatePickerTableViewCell.xib in Resources */,
 				C6977B5C1FE5F6E1001D78F6 /* LaunchScreen.storyboard in Resources */,
+				C6C782BE1FF4ADD10044A2BD /* FestivalTableViewCell.xib in Resources */,
+				C6C782A31FF3992B0044A2BD /* ArtistAddTableViewCell.xib in Resources */,
+				C6C782A71FF39D1D0044A2BD /* LocationTableViewCell.xib in Resources */,
 				C6977B591FE5F6E1001D78F6 /* Assets.xcassets in Resources */,
+				C6C7829D1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib in Resources */,
+				C6C782B31FF42DED0044A2BD /* DateLabelTableViewCell.xib in Resources */,
 				C6977B571FE5F6E1001D78F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,11 +343,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ShowTracker/Pods-ShowTracker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DatePickerCell/DatePickerCell.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -299,9 +375,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShowTracker/Pods-ShowTracker-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -354,9 +433,17 @@
 				C61CD0161FF1A38B00FA860F /* ShowTableViewCell.swift in Sources */,
 				C6977B741FE5FC8F001D78F6 /* Show.swift in Sources */,
 				C6977B521FE5F6E1001D78F6 /* AppDelegate.swift in Sources */,
+				C61CD0181FF31DDF00FA860F /* CreateShowTableViewController.swift in Sources */,
 				C6977B781FE60A39001D78F6 /* ShowViewController.swift in Sources */,
+				C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */,
+				C6C782A61FF39D1D0044A2BD /* LocationTableViewCell.swift in Sources */,
+				C6C782B21FF42DED0044A2BD /* DateLabelTableViewCell.swift in Sources */,
 				C61CD0141FF0EEF600FA860F /* RatingControl.swift in Sources */,
+				C6C782AE1FF3A2090044A2BD /* RatingTableViewCell.swift in Sources */,
+				C6C7829C1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift in Sources */,
+				C6C782B91FF4311E0044A2BD /* DatePickerTableViewCell.swift in Sources */,
 				C6977B721FE5FC41001D78F6 /* ShowTableViewController.swift in Sources */,
+				C6C782BD1FF4ADD10044A2BD /* FestivalTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

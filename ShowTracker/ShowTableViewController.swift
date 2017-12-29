@@ -21,9 +21,9 @@ class ShowTableViewController: UITableViewController {
     }
     
     private func createShows() {
-        let show1 = Show(artist: "Loud Luxury", date: dateFormatter.date(from: "Jun 2, 2014")!, location: "Soundcheck", rating: 5)
-        let show2 = Show(artist: "Chris Lake", date: dateFormatter.date(from: "Oct 20, 2017")!, location: "U Street Music Hall", rating: 3)
-        let show3 = Show(artist: "Seven Lions", date: dateFormatter.date(from: "Dec 8, 2017")!, location: "Echostage", rating: 4)
+        let show1 = Show(artists: ["Loud Luxury"], date: dateFormatter.date(from: "Jun 2, 2014")!, location: "Soundcheck", rating: 5)
+        let show2 = Show(artists: ["Chris Lake"], date: dateFormatter.date(from: "Oct 20, 2017")!, location: "U Street Music Hall", rating: 3)
+        let show3 = Show(artists: ["Seven Lions"], date: dateFormatter.date(from: "Dec 8, 2017")!, location: "Echostage", rating: 4)
         
         shows.append(show1!)
         shows.append(show2!)
@@ -73,7 +73,7 @@ class ShowTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let show = shows[indexPath.row]
         
-        cell.artistLabel.text = show.artist
+        //TODO: cell.artistLabel.text = show.artists
         cell.locationLabel.text = show.location
         cell.dateLabel.text = dateFormatter.string(from: show.date)
         cell.ratingControl.rating = show.rating

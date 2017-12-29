@@ -52,7 +52,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Set up views if editing an existing Show.
         if let show = show {
             navigationItem.title = "Edit Show"
-            artistField.text = show.artist
+            //TODO: artistField.text = show.artist
             locationField.text = show.location
             date = show.date
             ratingField.rating = show.rating
@@ -87,25 +87,29 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.beginUpdates()
+        
         if datePickerIndexPath != nil && (datePickerIndexPath! as NSIndexPath).row - 1 == (indexPath as NSIndexPath).row {
             let cell = tableView.cellForRow(at: datePickerIndexPath!)
             let datePicker = cell!.viewWithTag(datePickerTag) as! UIDatePicker
             date = datePicker.date
+            tableViewHeightConstraint.constant = tableView.contentSize.height - 200
             tableView.deleteRows(at: [datePickerIndexPath!], with: .fade)
             datePickerIndexPath = nil
         } else {
             datePickerIndexPath = calculateDatePickerIndexPath(indexPath)
+            tableViewHeightConstraint.constant = tableView.contentSize.height + 200
             tableView.insertRows(at: [datePickerIndexPath!], with: .fade)
         }
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.endUpdates()
         
         // Required in this case for correct contentSize
-        tableView.reloadData()
+        //tableView.reloadData()
         
         // Set the height of tableView to match its content size height
         // Constraint is an easy way to do it versus adding up row heights
-        tableViewHeightConstraint.constant = tableView.contentSize.height
+        //tableViewHeightConstraint.constant = tableView.contentSize.height
+        
     }
     
     // Estimate the rowHeight
@@ -168,6 +172,18 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func indexPathHasPicker(_ indexPath: IndexPath) -> Bool {
         return hasInlineDatePicker() && (datePickerIndexPath as NSIndexPath?)?.row == (indexPath as NSIndexPath).row
     }
+
+    
+    @IBAction func dateChange(_ sender: UIDatePicker) {
+        let parentIndexPath = NSIndexPath(row: datePickerIndexPath!.row - 1, section: 0)
+        
+        // change model
+        date = sender.date
+        
+        // change view
+        let eventCell = tableView.cellForRow(at: parentIndexPath as IndexPath)!
+        eventCell.detailTextLabel?.text = dateFormatter.string(from: sender.date)
+    }
     
     
     // MARK: Navigation
@@ -186,15 +202,15 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let location = locationField.text ?? ""
         let rating = ratingField.rating
         
-        show = Show(artist: artist, date: date, location: location, rating: rating)
+        show = Show(artists: [artist], date: date, location: location, rating: rating)
     }
     
     @IBAction func cancel(_ sender: Any) {
         
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        let isPresentingInAddShowMode = presentingViewController is UINavigationController
         
-        if isPresentingInAddMealMode {
+        if isPresentingInAddShowMode {
             dismiss(animated: true, completion: nil)
         } else if let owningNavigationController = navigationController {
             owningNavigationController.popViewController(animated: true)
@@ -226,7 +242,7 @@ class ShowViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Disable the Save button if the text field is empty.
         let artistText = artistField.text ?? ""
         let locationText = locationField.text ?? ""
-        saveButton.isEnabled = !artistText.isEmpty && !locationText.isEmpty
+        saveButton.isEnabled = !artistText.isEmpty && !locationText.isEmpty //&& !hasInlineDatePicker()
     }
 
 }

@@ -11,16 +11,23 @@ import Foundation
 class Show {
     
     // MARK: Properties
-    var artist: String
+    var artists: [String]
     var date: Date
     var location: String
     var rating: Int
     
-    init?(artist: String, date: Date, location: String, rating: Int) {
+    init?(artists: [String], date: Date, location: String, rating: Int) {
         
         // Conditions to ensure safe data
         
-        guard !artist.isEmpty else {
+        var validString = true
+        for artist in artists {
+            if artist.isEmpty {
+                validString = false
+            }
+        }
+
+        guard artists.count > 0 && validString else {
             return nil
         }
         
@@ -32,11 +39,10 @@ class Show {
             return nil
         }
         
-        self.artist = artist
+        self.artists = artists
         self.date = date
         self.location = location
         self.rating = rating
     }
-    
     
 }

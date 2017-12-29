@@ -5,6 +5,7 @@ target 'ShowTracker' do
   use_frameworks!
 
   # Pods for ShowTracker
+  pod 'GooglePlaces'
 
   target 'ShowTrackerTests' do
     inherit! :search_paths
