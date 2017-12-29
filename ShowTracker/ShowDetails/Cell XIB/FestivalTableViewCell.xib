@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,27 +19,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-uc-Nne">
-                        <rect key="frame" x="255" y="9" width="49" height="31"/>
-                    </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Festival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK8-BX-zXc" userLabel="Title">
-                        <rect key="frame" x="16" y="14" width="66" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="66" id="aWs-Rd-jVY"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k4U-Qk-bhy">
+                        <rect key="frame" x="16" y="10" width="288" height="31"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Festival" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuL-cg-ULr">
+                                <rect key="frame" x="0.0" y="0.0" width="231" height="31"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-uc-Nne">
+                                <rect key="frame" x="239" y="0.0" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="E2s-uc-Nne" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="FvM-8H-ZqK"/>
-                    <constraint firstItem="gK8-BX-zXc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="QBh-dg-Y09"/>
-                    <constraint firstItem="gK8-BX-zXc" firstAttribute="centerY" secondItem="E2s-uc-Nne" secondAttribute="centerY" id="Y93-3a-4H6"/>
-                    <constraint firstItem="gK8-BX-zXc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hfQ-iH-N0i"/>
+                    <constraint firstItem="k4U-Qk-bhy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OGm-d1-yIs"/>
+                    <constraint firstItem="k4U-Qk-bhy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Pje-Gc-tvm"/>
+                    <constraint firstAttribute="trailing" secondItem="k4U-Qk-bhy" secondAttribute="trailing" constant="16" id="k6C-cM-WiH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="festivalNameField" destination="GuL-cg-ULr" id="svI-bY-dhc"/>
+                <outlet property="isFestivalSwitch" destination="E2s-uc-Nne" id="GPg-gJ-6Vz"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

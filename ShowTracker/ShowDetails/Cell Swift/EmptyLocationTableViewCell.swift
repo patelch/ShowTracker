@@ -1,5 +1,5 @@
 //
-//  LocationTableViewCell.swift
+//  EmptyLocationTableViewCell.swift
 //  ShowTracker
 //
 //  Created by Charmi Patel on 12/27/17.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class LocationTableViewCell: UITableViewCell {
+class EmptyLocationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

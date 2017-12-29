@@ -24,8 +24,8 @@
 		C6C7829D1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */; };
 		C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */; };
 		C6C782A31FF3992B0044A2BD /* ArtistAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */; };
-		C6C782A61FF39D1D0044A2BD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */; };
-		C6C782A71FF39D1D0044A2BD /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */; };
+		C6C782A61FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A41FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift */; };
+		C6C782A71FF39D1D0044A2BD /* EmptyLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782A51FF39D1D0044A2BD /* EmptyLocationTableViewCell.xib */; };
 		C6C782AE1FF3A2090044A2BD /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */; };
 		C6C782AF1FF3A2090044A2BD /* RatingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */; };
 		C6C782B21FF42DED0044A2BD /* DateLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */; };
@@ -34,6 +34,8 @@
 		C6C782BA1FF4311E0044A2BD /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */; };
 		C6C782BD1FF4ADD10044A2BD /* FestivalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */; };
 		C6C782BE1FF4ADD10044A2BD /* FestivalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */; };
+		C6C782C71FF5F5860044A2BD /* FilledLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782C51FF5F5860044A2BD /* FilledLocationTableViewCell.swift */; };
+		C6C782C81FF5F5860044A2BD /* FilledLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C782C61FF5F5860044A2BD /* FilledLocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +73,8 @@
 		C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistEntryTableViewCell.xib; sourceTree = "<group>"; };
 		C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAddTableViewCell.swift; sourceTree = "<group>"; };
 		C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistAddTableViewCell.xib; sourceTree = "<group>"; };
-		C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
-		C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782A41FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLocationTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782A51FF39D1D0044A2BD /* EmptyLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyLocationTableViewCell.xib; sourceTree = "<group>"; };
 		C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingTableViewCell.xib; sourceTree = "<group>"; };
 		C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
 		C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalTableViewCell.swift; sourceTree = "<group>"; };
 		C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FestivalTableViewCell.xib; sourceTree = "<group>"; };
+		C6C782C51FF5F5860044A2BD /* FilledLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilledLocationTableViewCell.swift; path = ../FilledLocationTableViewCell.swift; sourceTree = "<group>"; };
+		C6C782C61FF5F5860044A2BD /* FilledLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilledLocationTableViewCell.xib; sourceTree = "<group>"; };
 		E5979895C4204E7D33230528 /* Pods-ShowTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowTrackerTests/Pods-ShowTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,12 +188,13 @@
 		C6C782BF1FF4AEC50044A2BD /* Cell XIB */ = {
 			isa = PBXGroup;
 			children = (
+				C6C782C61FF5F5860044A2BD /* FilledLocationTableViewCell.xib */,
 				C6C782A11FF3992B0044A2BD /* ArtistAddTableViewCell.xib */,
 				C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */,
 				C6C782B11FF42DED0044A2BD /* DateLabelTableViewCell.xib */,
 				C6C782B81FF4311E0044A2BD /* DatePickerTableViewCell.xib */,
 				C6C782BC1FF4ADD10044A2BD /* FestivalTableViewCell.xib */,
-				C6C782A51FF39D1D0044A2BD /* LocationTableViewCell.xib */,
+				C6C782A51FF39D1D0044A2BD /* EmptyLocationTableViewCell.xib */,
 				C6C782AD1FF3A2090044A2BD /* RatingTableViewCell.xib */,
 			);
 			path = "Cell XIB";
@@ -203,7 +208,8 @@
 				C6C782B01FF42DED0044A2BD /* DateLabelTableViewCell.swift */,
 				C6C782B71FF4311E0044A2BD /* DatePickerTableViewCell.swift */,
 				C6C782BB1FF4ADD10044A2BD /* FestivalTableViewCell.swift */,
-				C6C782A41FF39D1D0044A2BD /* LocationTableViewCell.swift */,
+				C6C782A41FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift */,
+				C6C782C51FF5F5860044A2BD /* FilledLocationTableViewCell.swift */,
 				C6C782AC1FF3A2090044A2BD /* RatingTableViewCell.swift */,
 			);
 			path = "Cell Swift";
@@ -299,11 +305,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6C782AF1FF3A2090044A2BD /* RatingTableViewCell.xib in Resources */,
+				C6C782C81FF5F5860044A2BD /* FilledLocationTableViewCell.xib in Resources */,
 				C6C782BA1FF4311E0044A2BD /* DatePickerTableViewCell.xib in Resources */,
 				C6977B5C1FE5F6E1001D78F6 /* LaunchScreen.storyboard in Resources */,
 				C6C782BE1FF4ADD10044A2BD /* FestivalTableViewCell.xib in Resources */,
 				C6C782A31FF3992B0044A2BD /* ArtistAddTableViewCell.xib in Resources */,
-				C6C782A71FF39D1D0044A2BD /* LocationTableViewCell.xib in Resources */,
+				C6C782A71FF39D1D0044A2BD /* EmptyLocationTableViewCell.xib in Resources */,
 				C6977B591FE5F6E1001D78F6 /* Assets.xcassets in Resources */,
 				C6C7829D1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib in Resources */,
 				C6C782B31FF42DED0044A2BD /* DateLabelTableViewCell.xib in Resources */,
@@ -433,10 +440,11 @@
 				C61CD0161FF1A38B00FA860F /* ShowTableViewCell.swift in Sources */,
 				C6977B741FE5FC8F001D78F6 /* Show.swift in Sources */,
 				C6977B521FE5F6E1001D78F6 /* AppDelegate.swift in Sources */,
+				C6C782C71FF5F5860044A2BD /* FilledLocationTableViewCell.swift in Sources */,
 				C61CD0181FF31DDF00FA860F /* CreateShowTableViewController.swift in Sources */,
 				C6977B781FE60A39001D78F6 /* ShowViewController.swift in Sources */,
 				C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */,
-				C6C782A61FF39D1D0044A2BD /* LocationTableViewCell.swift in Sources */,
+				C6C782A61FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift in Sources */,
 				C6C782B21FF42DED0044A2BD /* DateLabelTableViewCell.swift in Sources */,
 				C61CD0141FF0EEF600FA860F /* RatingControl.swift in Sources */,
 				C6C782AE1FF3A2090044A2BD /* RatingTableViewCell.swift in Sources */,

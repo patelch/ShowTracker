@@ -388,12 +388,237 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="gY9-cp-XdG">
+                                        <rect key="frame" x="0.0" y="278" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gY9-cp-XdG" id="Y0J-Nx-GOl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="921-6A-DvN">
+                                                    <rect key="frame" x="16" y="-167.5" width="29" height="384"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="bqW-S4-2dl"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlc-nn-Qo4">
+                                                    <rect key="frame" x="53" y="14" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqO-EI-z7m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="titleEdgeInsets" minX="-338" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="160" maxY="8"/>
+                                                    <state key="normal" title="Add Artist" image="addIcon">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qlc-nn-Qo4" firstAttribute="centerY" secondItem="921-6A-DvN" secondAttribute="centerY" id="CXN-nQ-S4h"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qlc-nn-Qo4" secondAttribute="trailing" constant="20" symbolic="YES" id="QFg-Co-ICl"/>
+                                                <constraint firstItem="qlc-nn-Qo4" firstAttribute="centerY" secondItem="Y0J-Nx-GOl" secondAttribute="centerY" id="Vpx-dw-VQc"/>
+                                                <constraint firstItem="921-6A-DvN" firstAttribute="leading" secondItem="Y0J-Nx-GOl" secondAttribute="leading" constant="16" id="hV5-mc-eDe"/>
+                                                <constraint firstItem="qlc-nn-Qo4" firstAttribute="leading" secondItem="921-6A-DvN" secondAttribute="trailing" constant="8" symbolic="YES" id="n17-36-mVh"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="921-6A-DvN"/>
+                                                    <exclude reference="qlc-nn-Qo4"/>
+                                                    <exclude reference="HqO-EI-z7m"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="l6G-7x-CNY">
+                                        <rect key="frame" x="0.0" y="328" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l6G-7x-CNY" id="TsK-Eu-2EE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fjP-FJ-IV2">
+                                                    <rect key="frame" x="16" y="-167.5" width="29" height="384"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="Pkx-Qt-ekq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeM-tF-y4f">
+                                                    <rect key="frame" x="53" y="14" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeM-6b-crx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="titleEdgeInsets" minX="-338" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="160" maxY="8"/>
+                                                    <state key="normal" title="Add Artist" image="addIcon">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fjP-FJ-IV2" firstAttribute="leading" secondItem="TsK-Eu-2EE" secondAttribute="leading" constant="16" id="5t4-gb-t3k"/>
+                                                <constraint firstItem="eeM-tF-y4f" firstAttribute="centerY" secondItem="fjP-FJ-IV2" secondAttribute="centerY" id="KZ6-7g-bLh"/>
+                                                <constraint firstItem="eeM-tF-y4f" firstAttribute="centerY" secondItem="TsK-Eu-2EE" secondAttribute="centerY" id="Pxo-l7-Tdl"/>
+                                                <constraint firstItem="eeM-tF-y4f" firstAttribute="leading" secondItem="fjP-FJ-IV2" secondAttribute="trailing" constant="8" symbolic="YES" id="USv-nn-CiZ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eeM-tF-y4f" secondAttribute="trailing" constant="20" symbolic="YES" id="s3P-Is-eKK"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="fjP-FJ-IV2"/>
+                                                    <exclude reference="eeM-tF-y4f"/>
+                                                    <exclude reference="EeM-6b-crx"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="jT0-j6-ANT">
+                                        <rect key="frame" x="0.0" y="378" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jT0-j6-ANT" id="T73-rf-eLt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-Fx-pWP">
+                                                    <rect key="frame" x="16" y="-167.5" width="29" height="384"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="XLy-0L-3ie"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auo-yX-Dmu">
+                                                    <rect key="frame" x="53" y="14" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loE-0q-O2v">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="titleEdgeInsets" minX="-338" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="160" maxY="8"/>
+                                                    <state key="normal" title="Add Artist" image="addIcon">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Auo-yX-Dmu" firstAttribute="leading" secondItem="SBB-Fx-pWP" secondAttribute="trailing" constant="8" symbolic="YES" id="7w3-MP-o68"/>
+                                                <constraint firstItem="Auo-yX-Dmu" firstAttribute="centerY" secondItem="SBB-Fx-pWP" secondAttribute="centerY" id="Ae2-7y-xQ8"/>
+                                                <constraint firstItem="Auo-yX-Dmu" firstAttribute="centerY" secondItem="T73-rf-eLt" secondAttribute="centerY" id="Ji7-Nd-emx"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Auo-yX-Dmu" secondAttribute="trailing" constant="20" symbolic="YES" id="LgN-ae-A2m"/>
+                                                <constraint firstItem="SBB-Fx-pWP" firstAttribute="leading" secondItem="T73-rf-eLt" secondAttribute="leading" constant="16" id="TCT-Rr-vSi"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="SBB-Fx-pWP"/>
+                                                    <exclude reference="Auo-yX-Dmu"/>
+                                                    <exclude reference="loE-0q-O2v"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="90x-hM-qdw">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="90x-hM-qdw" id="OwR-Vo-rUb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-EZ-uS8">
+                                                    <rect key="frame" x="16" y="-167.5" width="29" height="384"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="FJw-cT-KXI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHR-H7-DLU">
+                                                    <rect key="frame" x="53" y="14" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLZ-YD-Tji">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="titleEdgeInsets" minX="-338" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="160" maxY="8"/>
+                                                    <state key="normal" title="Add Artist" image="addIcon">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aHR-H7-DLU" firstAttribute="leading" secondItem="Hfg-EZ-uS8" secondAttribute="trailing" constant="8" symbolic="YES" id="3kr-fg-GqJ"/>
+                                                <constraint firstItem="aHR-H7-DLU" firstAttribute="centerY" secondItem="OwR-Vo-rUb" secondAttribute="centerY" id="LIQ-Kx-LMB"/>
+                                                <constraint firstItem="aHR-H7-DLU" firstAttribute="centerY" secondItem="Hfg-EZ-uS8" secondAttribute="centerY" id="NZe-OV-0FU"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aHR-H7-DLU" secondAttribute="trailing" constant="20" symbolic="YES" id="UEY-mp-Bkc"/>
+                                                <constraint firstItem="Hfg-EZ-uS8" firstAttribute="leading" secondItem="OwR-Vo-rUb" secondAttribute="leading" constant="16" id="xL2-nf-Uey"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Hfg-EZ-uS8"/>
+                                                    <exclude reference="aHR-H7-DLU"/>
+                                                    <exclude reference="oLZ-YD-Tji"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="COn-Cw-ku2">
+                                        <rect key="frame" x="0.0" y="478" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="COn-Cw-ku2" id="9Ui-CK-SNx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KIh-5f-7IP">
+                                                    <rect key="frame" x="16" y="-167.5" width="29" height="384"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="Drg-yh-4V8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esP-71-WRN">
+                                                    <rect key="frame" x="53" y="14" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-8e-fXw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="titleEdgeInsets" minX="-338" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="8" minY="8" maxX="160" maxY="8"/>
+                                                    <state key="normal" title="Add Artist" image="addIcon">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="esP-71-WRN" firstAttribute="centerY" secondItem="9Ui-CK-SNx" secondAttribute="centerY" id="22c-6z-EhR"/>
+                                                <constraint firstItem="esP-71-WRN" firstAttribute="centerY" secondItem="KIh-5f-7IP" secondAttribute="centerY" id="6bg-8k-RDn"/>
+                                                <constraint firstItem="esP-71-WRN" firstAttribute="leading" secondItem="KIh-5f-7IP" secondAttribute="trailing" constant="8" symbolic="YES" id="QIs-XG-eaS"/>
+                                                <constraint firstItem="KIh-5f-7IP" firstAttribute="leading" secondItem="9Ui-CK-SNx" secondAttribute="leading" constant="16" id="ULd-Cp-ih3"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="esP-71-WRN" secondAttribute="trailing" constant="20" symbolic="YES" id="vih-bw-iRd"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="KIh-5f-7IP"/>
+                                                    <exclude reference="esP-71-WRN"/>
+                                                    <exclude reference="ajG-8e-fXw"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Date" id="tUX-Wj-NNd" userLabel="DateSection">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="V6I-ul-XfU">
-                                        <rect key="frame" x="0.0" y="306" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="556" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V6I-ul-XfU" id="0Ab-x1-N3S">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -435,7 +660,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="cpS-d1-NbG">
-                                        <rect key="frame" x="0.0" y="356" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="606" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cpS-d1-NbG" id="sEh-OY-uHc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -477,7 +702,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="6At-mY-rec">
-                                        <rect key="frame" x="0.0" y="406" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="656" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6At-mY-rec" id="TA8-VB-lfD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -523,7 +748,7 @@
                             <tableViewSection headerTitle="Other Information" id="F7r-lK-4Nv" userLabel="OtherInfoSection">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LGQ-4P-vUS">
-                                        <rect key="frame" x="0.0" y="484" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="734" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGQ-4P-vUS" id="h0G-Sc-UOV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -531,7 +756,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9El-DD-2MT">
-                                        <rect key="frame" x="0.0" y="528" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="778" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9El-DD-2MT" id="UUh-fS-Gfr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -543,7 +768,7 @@
                             <tableViewSection headerTitle="Rating" id="pWR-E3-Tbp" userLabel="RatingSection">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ikf-Nr-eQj">
-                                        <rect key="frame" x="0.0" y="600" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="850" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ikf-Nr-eQj" id="w5o-5M-jvm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

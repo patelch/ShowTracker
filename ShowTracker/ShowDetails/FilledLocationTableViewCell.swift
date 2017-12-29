@@ -1,17 +1,18 @@
 //
-//  FestivalTableViewCell.swift
+//  FilledLocationTableViewCell.swift
 //  ShowTracker
 //
-//  Created by Charmi Patel on 12/27/17.
+//  Created by Charmi Patel on 12/28/17.
 //  Copyright © 2017 Charmi Patel. All rights reserved.
 //
 
 import UIKit
 
-class FestivalTableViewCell: UITableViewCell {
+class FilledLocationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var festivalNameField: UITextField!
-    @IBOutlet weak var isFestivalSwitch: UISwitch!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

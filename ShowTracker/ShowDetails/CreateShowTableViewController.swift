@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class CreateShowTableViewController: UITableViewController, UITextFieldDelegate {
     
@@ -20,6 +21,10 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     
     var tableSections = [SectionName: Int]()
     var customCellNamesToIdentifiers = [String: String]()
+    
+    let artistEntryTag = 0
+    let festivalNameTag = 1
+    
     // MARK: Properties
     
     private var startDateCellExpanded = false
@@ -34,13 +39,19 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     private var artists = [String]()
     private var artistCount = 0
     
+    private var location: GMSPlace?
+    private var isFestival = false
+    private var festivalName = String()
+    
+    private var rating = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // add table section name to index mapping
         tableSections = [.artists: 0, .date: 1, .otherInformation: 2, .rating: 3]
         
-        customCellNamesToIdentifiers = ["ArtistAddTableViewCell" : "artistAddCell", "ArtistEntryTableViewCell" : "artistEntryCell", "LocationTableViewCell" : "locationCell", "FestivalTableViewCell" : "festivalCell", "DateLabelTableViewCell" : "dateLabelCell", "DatePickerTableViewCell" : "datePickerCell", "RatingTableViewCell" : "ratingCell"]
+        customCellNamesToIdentifiers = ["ArtistAddTableViewCell" : "artistAddCell", "ArtistEntryTableViewCell" : "artistEntryCell", "EmptyLocationTableViewCell" : "emptyLocationCell", "FilledLocationTableViewCell" : "filledLocationCell", "FestivalTableViewCell" : "festivalCell", "DateLabelTableViewCell" : "dateLabelCell", "DatePickerTableViewCell" : "datePickerCell", "RatingTableViewCell" : "ratingCell"]
         
         
         // register nibs
@@ -77,18 +88,27 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
         }
         
         invalidDate = startDate > endDate
-
+        
         // reload date
-//        let indexPath = NSIndexPath(row: rowOfHeader, section: tableSections[.date]!) as IndexPath
-//        tableView.reloadRows(at: [indexPath], with: .automatic)
-
+        //        let indexPath = NSIndexPath(row: rowOfHeader, section: tableSections[.date]!) as IndexPath
+        //        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
         // reload date
         let indexSet = NSIndexSet(index: tableSections[.date]!) as IndexSet
         tableView.reloadSections(indexSet, with: .automatic)
-    
+        
     }
     
-    // MARK: UITableViewDelegate Methods
+    // MARK: Festival Switch Methods
+    @objc func festivalSwitchChanged(festivalSwitch: UISwitch) {
+        isFestival = festivalSwitch.isOn
+        
+        // reload other information
+        let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
+        tableView.reloadSections(indexSet, with: .automatic)
+    }
+    
+    // MARK: UITextFieldDelegate Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -96,12 +116,21 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        artists.append(textField.text!)
         
-        // reload artist list
-        let indexSet = NSIndexSet(index: tableSections[.artists]!) as IndexSet
-        tableView.reloadSections(indexSet, with: .automatic)
-
+        if textField.tag == artistEntryTag {
+            artists.append(textField.text!)
+        
+            // reload artist list
+            let indexSet = NSIndexSet(index: tableSections[.artists]!) as IndexSet
+            tableView.reloadSections(indexSet, with: .automatic)
+        } else {
+            festivalName = textField.text!
+            
+            // reload other information section
+            let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
+            tableView.reloadSections(indexSet, with: .automatic)
+        }
+        
     }
     
     // MARK: Google Places API Delegate Methods
@@ -165,7 +194,7 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                     // only one date picker can be open at a time
                     // since the start datepicker is open, close it
                     startDateCellExpanded = false
-
+                    
                 } else {
                     tableView.deleteRows(at: [NSIndexPath(row: indexPath.row + 1, section: indexPath.section) as IndexPath], with: .fade)
                 }
@@ -192,8 +221,18 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.endUpdates()
             
-            tableView.reloadData()
+            // reload artists
+            let indexSet = NSIndexSet(index: tableSections[.artists]!) as IndexSet
+            tableView.reloadSections(indexSet, with: .fade)
             
+        }
+        
+        // other information section
+        if indexPath.section == tableSections[.otherInformation] && indexPath.row == 0 {
+            // location
+            let autocompleteController = GMSAutocompleteViewController()
+            autocompleteController.delegate = self
+            present(autocompleteController, animated: true, completion: nil)
         }
     }
     
@@ -234,7 +273,7 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                 
                 // configure cell
                 cell.editArtistField.delegate = self
-                cell.editArtistField.tag = indexPath.row
+                cell.editArtistField.tag = artistEntryTag
                 
                 if (indexPath.row < artists.count) {
                     cell.editArtistField.text = artists[indexPath.row]
@@ -247,10 +286,32 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
             }
         } else if indexPath.section == tableSections[.otherInformation] {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
-                return cell
+                if location == nil {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "emptyLocationCell", for: indexPath) as! EmptyLocationTableViewCell
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "filledLocationCell", for: indexPath) as! FilledLocationTableViewCell
+                    cell.titleLabel.text = location!.name
+                    cell.subtitleLabel.text = location!.formattedAddress
+                    return cell
+                }
+                
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "festivalCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "festivalCell", for: indexPath) as! FestivalTableViewCell
+                
+                cell.selectionStyle = .none
+                
+                cell.isFestivalSwitch.setOn(isFestival, animated: true)
+                if isFestival {
+                    cell.festivalNameField.isEnabled = true
+                    cell.festivalNameField.delegate = self
+                    cell.festivalNameField.tag = festivalNameTag
+                } else {
+                    cell.festivalNameField.isEnabled = false
+                    let festivalSwitch = cell.isFestivalSwitch
+                    festivalSwitch?.addTarget(self, action: #selector(festivalSwitchChanged(festivalSwitch:)), for: .valueChanged)
+                }
+                
                 return cell
             }
             
@@ -265,8 +326,6 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                 cell.detailLabel.attributedText = nil
                 cell.detailLabel.text = dateFormatter.string(from: startDate)
                 cell.detailLabel.textColor = .black
-                
-
                 
                 return cell
             }
@@ -290,12 +349,12 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                     cell.titleLabel.text = "End"
                     cell.detailLabel.attributedText = nil
                     cell.detailLabel.text = dateFormatter.string(from: endDate)
-
+                    
                     if invalidDate {
                         cell.detailLabel.textColor = .red
                         
                         let attributeString = NSAttributedString(string: dateFormatter.string(from: startDate), attributes: [NSAttributedStringKey.strikethroughStyle : NSUnderlineStyle.styleSingle.rawValue])
-
+                        
                         cell.detailLabel.attributedText = attributeString
                     } else {
                         cell.detailLabel.textColor = .black
@@ -334,20 +393,20 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                     } else {
                         cell.detailLabel.textColor = .black
                     }
-
+                    
                     return cell
                 }
                 
             }
             return UITableViewCell()
         } else if indexPath.section == tableSections[.rating] {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ratingCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ratingCell", for: indexPath) as! RatingTableViewCell
+            
             return cell
-    
+            
         } else {
             return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
     /*
@@ -396,3 +455,41 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
      */
     
 }
+
+extension CreateShowTableViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        location = place
+        
+        // reload other information
+        let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
+        tableView.reloadSections(indexSet, with: .fade)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+}
+
