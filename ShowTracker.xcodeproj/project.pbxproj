@@ -19,7 +19,6 @@
 		C6977B671FE5F6E1001D78F6 /* ShowTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B661FE5F6E1001D78F6 /* ShowTrackerTests.swift */; };
 		C6977B721FE5FC41001D78F6 /* ShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */; };
 		C6977B741FE5FC8F001D78F6 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B731FE5FC8F001D78F6 /* Show.swift */; };
-		C6977B781FE60A39001D78F6 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6977B771FE60A39001D78F6 /* ShowViewController.swift */; };
 		C6C7829C1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C7829A1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift */; };
 		C6C7829D1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */; };
 		C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */; };
@@ -68,7 +67,6 @@
 		C6977B681FE5F6E1001D78F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewController.swift; sourceTree = "<group>"; };
 		C6977B731FE5FC8F001D78F6 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		C6977B771FE60A39001D78F6 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		C6C7829A1FF37CE10044A2BD /* ArtistEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntryTableViewCell.swift; sourceTree = "<group>"; };
 		C6C7829B1FF37CE10044A2BD /* ArtistEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistEntryTableViewCell.xib; sourceTree = "<group>"; };
 		C6C782A01FF3992B0044A2BD /* ArtistAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAddTableViewCell.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				C6C7829F1FF397750044A2BD /* ShowDetails */,
 				C6977B551FE5F6E1001D78F6 /* Main.storyboard */,
 				C6977B511FE5F6E1001D78F6 /* AppDelegate.swift */,
-				C6977B771FE60A39001D78F6 /* ShowViewController.swift */,
 				C6977B711FE5FC41001D78F6 /* ShowTableViewController.swift */,
 				C61CD0151FF1A38B00FA860F /* ShowTableViewCell.swift */,
 				C61CD0131FF0EEF600FA860F /* RatingControl.swift */,
@@ -442,7 +439,6 @@
 				C6977B521FE5F6E1001D78F6 /* AppDelegate.swift in Sources */,
 				C6C782C71FF5F5860044A2BD /* FilledLocationTableViewCell.swift in Sources */,
 				C61CD0181FF31DDF00FA860F /* CreateShowTableViewController.swift in Sources */,
-				C6977B781FE60A39001D78F6 /* ShowViewController.swift in Sources */,
 				C6C782A21FF3992B0044A2BD /* ArtistAddTableViewCell.swift in Sources */,
 				C6C782A61FF39D1D0044A2BD /* EmptyLocationTableViewCell.swift in Sources */,
 				C6C782B21FF42DED0044A2BD /* DateLabelTableViewCell.swift in Sources */,

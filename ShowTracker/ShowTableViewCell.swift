@@ -11,7 +11,7 @@ import UIKit
 class ShowTableViewCell: UITableViewCell {
 
     // MARK: Properties
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!

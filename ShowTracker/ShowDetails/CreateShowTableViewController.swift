@@ -8,11 +8,22 @@
 
 import UIKit
 import GooglePlaces
+import os.log
 
-class CreateShowTableViewController: UITableViewController, UITextFieldDelegate {
+
+class CreateShowTableViewController: UITableViewController {
     
-    // TODO: WILL DISPLAY CELL TABLE VIEW
-    // TODO: Extensions
+    // MARK: Types
+    struct CustomCellNames {
+        static let artistAddCell = "ArtistAddTableViewCell"
+        static let artistEntryCell = "ArtistEntryTableViewCell"
+        static let dateLabelCell = "DateLabelTableViewCell"
+        static let datePickerCell = "DatePickerTableViewCell"
+        static let emptyLocationCell = "EmptyLocationTableViewCell"
+        static let filledLocationCell = "FilledLocationTableViewCell"
+        static let festivalCell = "FestivalTableViewCell"
+        static let ratingCell = "RatingTableViewCell"
+    }
     
     // MARK: Constants
     enum SectionName {
@@ -24,6 +35,7 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     
     let artistEntryTag = 0
     let festivalNameTag = 1
+    let maxArtists = 30
     
     // MARK: Properties
     
@@ -44,6 +56,11 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     private var festivalName = String()
     
     private var rating = 0
+    
+    var show: Show?
+    
+    // MARK: Outlets
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +83,22 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
         
         // date
         dateFormatter.dateStyle = .medium
+        
+        // Set up views if editing an existing Show.
+        if let show = show {
+            artists = show.artists
+            artistCount = artists.count
+            startDate = show.startDate
+            endDate = show.endDate
+            location = show.location
+            isFestival = show.isFestival
+            if isFestival {
+                festivalName = show.festivalName!
+            }
+            rating = show.rating
+        }
+        
+        updateSaveButtonState()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -90,12 +123,9 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
         invalidDate = startDate > endDate
         
         // reload date
-        //        let indexPath = NSIndexPath(row: rowOfHeader, section: tableSections[.date]!) as IndexPath
-        //        tableView.reloadRows(at: [indexPath], with: .automatic)
-        
-        // reload date
         let indexSet = NSIndexSet(index: tableSections[.date]!) as IndexSet
         tableView.reloadSections(indexSet, with: .automatic)
+        updateSaveButtonState()
         
     }
     
@@ -107,33 +137,6 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
         let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
         tableView.reloadSections(indexSet, with: .automatic)
     }
-    
-    // MARK: UITextFieldDelegate Methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField.tag == artistEntryTag {
-            artists.append(textField.text!)
-        
-            // reload artist list
-            let indexSet = NSIndexSet(index: tableSections[.artists]!) as IndexSet
-            tableView.reloadSections(indexSet, with: .automatic)
-        } else {
-            festivalName = textField.text!
-            
-            // reload other information section
-            let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
-            tableView.reloadSections(indexSet, with: .automatic)
-        }
-        
-    }
-    
-    // MARK: Google Places API Delegate Methods
     
     
     // MARK: Table view data source
@@ -251,11 +254,12 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // MARK: Artist Cell
         if indexPath.section == tableSections[.artists] {
             if indexPath.row == artistCount {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "artistAddCell", for: indexPath) as! ArtistAddTableViewCell
                 
-                if artistCount != artists.count {
+                if artistCount != artists.count || artistCount == maxArtists {
                     cell.selectionStyle = .none
                     cell.isUserInteractionEnabled = false
                     cell.addArtistButton.isEnabled = false
@@ -284,7 +288,10 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                 return cell
                 
             }
-        } else if indexPath.section == tableSections[.otherInformation] {
+        }
+            
+            // MARK: Other Information Cell
+        else if indexPath.section == tableSections[.otherInformation] {
             if indexPath.row == 0 {
                 if location == nil {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "emptyLocationCell", for: indexPath) as! EmptyLocationTableViewCell
@@ -295,7 +302,6 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                     cell.subtitleLabel.text = location!.formattedAddress
                     return cell
                 }
-                
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "festivalCell", for: indexPath) as! FestivalTableViewCell
                 
@@ -314,8 +320,10 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                 
                 return cell
             }
+        }
             
-        } else if indexPath.section == tableSections[.date] {
+            // MARK: Date Cell
+        else if indexPath.section == tableSections[.date] {
             
             // first cell is the header for the start date
             if indexPath.row == 0 {
@@ -399,8 +407,17 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
                 
             }
             return UITableViewCell()
-        } else if indexPath.section == tableSections[.rating] {
+        }
+            
+            // MARK: Rating Cell
+        else if indexPath.section == tableSections[.rating] {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ratingCell", for: indexPath) as! RatingTableViewCell
+            
+            cell.ratingControl.rating = rating
+            cell.ratingControl.ratingDidChangeClosure = {
+                // reload rating
+                self.rating = cell.ratingControl.rating
+            }
             
             return cell
             
@@ -409,25 +426,30 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
         }
     }
     
-    /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
+        
+        if indexPath.section == tableSections[.artists] && indexPath.row != artistCount {
+            return true
+        } else {
+            return false
+        }
+
      }
-     */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            artists.remove(at: indexPath.row)
+            artistCount -= 1
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            updateSaveButtonState()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     
     /*
      // Override to support rearranging the table view.
@@ -444,26 +466,94 @@ class CreateShowTableViewController: UITableViewController, UITextFieldDelegate 
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // MARK: - Navigation
+    
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+
+        let isPresentingInAddShowMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddShowMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        show = Show(artists: artists, startDate: startDate, endDate: endDate, location: location!, isFestival: isFestival, festivalName: festivalName, rating: rating)
+        
+    }
+    
+    // MARK: Private Methods
+    
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let validArtists = artists.count > 0 && artists.count == artistCount
+        let validDate = startDate <= endDate
+        let validLocation = location != nil
+        saveButton.isEnabled = validArtists && validDate && validLocation
+    }
+}
+
+
+extension CreateShowTableViewController: UITextFieldDelegate {
+    
+    // MARK: UITextField Delegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField.tag == artistEntryTag {
+            artists.append(textField.text!)
+            
+            // reload artist list
+            let indexSet = NSIndexSet(index: tableSections[.artists]!) as IndexSet
+            tableView.reloadSections(indexSet, with: .automatic)
+        } else {
+            festivalName = textField.text!
+            
+            // reload other information section
+            let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet
+            tableView.reloadSections(indexSet, with: .automatic)
+        }
+        
+        updateSaveButtonState()
+    }
 }
 
 extension CreateShowTableViewController: GMSAutocompleteViewControllerDelegate {
     
+    // MARK: Location Autocomplete Delegate
+    
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
         location = place
+        updateSaveButtonState()
         
         // reload other information
         let indexSet = NSIndexSet(index: tableSections[.otherInformation]!) as IndexSet

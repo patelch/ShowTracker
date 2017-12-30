@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dmJ-ap-nF5" customClass="RatingControl" customModule="ShowTracker" customModuleProvider="target">
-                        <rect key="frame" x="32" y="2" width="257" height="45"/>
+                        <rect key="frame" x="69.5" y="9.5" width="182" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="dT2-ih-WoF"/>
-                            <constraint firstAttribute="width" constant="257" id="qRo-SQ-ijf"/>
+                            <constraint firstAttribute="height" constant="30" id="dT2-ih-WoF"/>
+                            <constraint firstAttribute="width" constant="182" id="qRo-SQ-ijf"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
